@@ -16,3 +16,4 @@ D:\ИРНИТУ\2 курс\Технология программирования
 D:\ИРНИТУ\2 курс\Технология программирования\Лаба 4\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.pdb
 D:\ИРНИТУ\2 курс\Технология программирования\Лаба 4\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.genruntimeconfig.cache
 D:\ИРНИТУ\2 курс\Технология программирования\Лаба 4\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.Form.resources
+D:\ИРНИТУ\2 курс\Технология программирования\Лаба 4\WinFormsApp1\obj\Debug\net5.0-windows\WinFormsApp1.Properties.Resources.resources

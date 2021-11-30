@@ -24,18 +24,24 @@ namespace WinFormsApp1
         {
             if (this.plantsList.Count == 0)
             {
+                pictureBox1.ImageLocation = "";
+                pictureBox2.ImageLocation = "";
                 txtLine1.Text = "Пусто";
                 txtLine2.Text = "Пусто";
                 return;
             }
             else if (this.plantsList.Count == 1)
             {
+                pictureBox1.ImageLocation = "";
+                pictureBox2.ImageLocation = this.plantsList[0].ImageLink;
                 txtLine1.Text = this.plantsList[0].getInfo();
                 txtLine2.Text = "Пусто";
                 return;
             }
             else if (this.plantsList.Count >= 2)
             {
+                pictureBox1.ImageLocation = this.plantsList[1].ImageLink;
+                pictureBox2.ImageLocation = this.plantsList[0].ImageLink;
                 txtLine1.Text = this.plantsList[0].getInfo();
                 txtLine2.Text = this.plantsList[1].getInfo();
                 return;
@@ -117,6 +123,7 @@ namespace WinFormsApp1
         {
             if (this.plantsList.Count == 0)
             {
+                pictureBox3.ImageLocation = "";
                 txtOut.Text = "Пусто";
                 return;
             }
@@ -124,6 +131,7 @@ namespace WinFormsApp1
             var plant = this.plantsList[0];
             this.plantsList.RemoveAt(0);
 
+            pictureBox3.ImageLocation = plant.ImageLink;
             txtOut.Text = plant.getInfo();
 
             ShowInfo();

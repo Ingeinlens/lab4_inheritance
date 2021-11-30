@@ -11,6 +11,7 @@ namespace WinFormsApp1
     {
         public int Height = 0;
         public static Random rnd = new Random();
+        public string ImageLink = "";
 
         public virtual String getInfo()
         {
@@ -51,7 +52,8 @@ namespace WinFormsApp1
                 Height = rnd.Next() % 30,
                 PetalCount = rnd.Next() % 15,
                 Color = (FlowerColor)rnd.Next(5),
-                Type = (FlowerType)rnd.Next(4)
+                Type = (FlowerType)rnd.Next(4),
+                ImageLink = "https://images.unsplash.com/photo-1560790671-b76ca4de55ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=734&q=80"
             };
         }
     }
@@ -77,7 +79,8 @@ namespace WinFormsApp1
             {
                 Height = 30 + rnd.Next(100),
                 FlowerPresence = rnd.Next(2) == 0,
-                BranchCount = 10 + rnd.Next(30)
+                BranchCount = 10 + rnd.Next(30),
+                ImageLink = "https://images.unsplash.com/photo-1595251742237-3f6a7ee4131d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
             };
         }
     }
@@ -107,7 +110,8 @@ namespace WinFormsApp1
             {
                 Height = 100 + rnd.Next(1000),
                 type = (TreeType)rnd.Next(2),
-                Radius = 5 + rnd.Next(50)
+                Radius = 5 + rnd.Next(50),
+                ImageLink = "https://images.unsplash.com/photo-1437964706703-40b90bdf563b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
             };
         }
     }
