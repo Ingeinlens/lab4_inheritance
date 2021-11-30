@@ -10,17 +10,46 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
         private List<Plant> plantsList = new List<Plant>();
 
-        public Form1()
+        public Form()
         {
             InitializeComponent();
             ShowInfo();
         }
 
-        private void btnRefill_Click(object sender, EventArgs e)
+        private void Line()
+        {
+            if (this.plantsList.Count == 0)
+            {
+                txtLine1.Text = "Пусто";
+                txtLine2.Text = "Пусто";
+                return;
+            }
+            else if (this.plantsList.Count == 1)
+            {
+                txtLine1.Text = this.plantsList[0].getInfo();
+                txtLine2.Text = "Пусто";
+                return;
+            }
+            else if (this.plantsList.Count >= 2)
+            {
+                txtLine1.Text = this.plantsList[0].getInfo();
+                txtLine2.Text = this.plantsList[1].getInfo();
+                return;
+            }
+        }
+
+        private void Clear()
+        {
+            txtOut.Text = "";
+            txtLine1.Text = "";
+            txtLine2.Text = "";
+        }
+
+        private void Refill()
         {
             this.plantsList.Clear();
             var rnd = new Random();
@@ -42,6 +71,13 @@ namespace WinFormsApp1
                 }
             }
             ShowInfo();
+        }
+
+        private void btnRefill_Click(object sender, EventArgs e)
+        {
+            Clear();
+            Refill();
+            Line();
         }
 
         private void ShowInfo()
@@ -73,7 +109,8 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ShowInfo();
+            Refill();
+            Line();
         }
 
         private void btnGet_Click(object sender, EventArgs e)
@@ -90,6 +127,7 @@ namespace WinFormsApp1
             txtOut.Text = plant.getInfo();
 
             ShowInfo();
+            Line();
         }
     }
 }
