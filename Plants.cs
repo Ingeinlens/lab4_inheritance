@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// БУДТЕ ВНИМАТЕЛЬНЕЕ: ТУТ ДОЛЖЕН СТОЯТЬ ТОТ ЖЕ namespace что и в Program.cs
 namespace WinFormsApp1
 {
     public class Plant
@@ -40,9 +39,71 @@ namespace WinFormsApp1
             var str = "Цветок";
             str += base.getInfo();
             str += String.Format("\nКоличество лепестков: {0}", this.PetalCount);
-            str += String.Format("\nЦвет: {0}", this.Color);
-            str += String.Format("\nТип цветка: {0}", this.Type);
+            str += String.Format("\nЦвет: {0}", ConvertColor(this.Color));
+            str += String.Format("\nТип цветка: {0}", ConvertType(this.Type));
             return str;
+        }
+
+        private string ConvertColor(FlowerColor color)
+        {
+            string col = "";
+
+            switch (color)
+            {
+                case FlowerColor.orange:
+                    col = "оранжевый";
+                    break;
+
+                case FlowerColor.blue:
+                    col = "синий";
+                    break;
+
+                case FlowerColor.red:
+                    col = "красный";
+                    break;
+
+                case FlowerColor.yellow:
+                    col = "желтый";
+                    break;
+
+                case FlowerColor.white:
+                    col = "белый";
+                    break;
+
+                default:
+                    break;
+            }
+
+            return col;
+        }
+
+        private string ConvertType(FlowerType type)
+        {
+            string ty = "";
+
+            switch (type)
+            {
+                case FlowerType.tubular:
+                    ty = "трубчатый";
+                    break;
+
+                case FlowerType.bell_shaped:
+                    ty = "колокольчатый";
+                    break;
+
+                case FlowerType.star_shaped:
+                    ty = "звёздный";
+                    break;
+
+                case FlowerType.globular:
+                    ty = "сферический";
+                    break;
+
+                default:
+                    break;
+            }
+
+            return ty;
         }
 
         public static Flower Generate()
@@ -68,9 +129,21 @@ namespace WinFormsApp1
         {
             var str = "Куст";
             str += base.getInfo();
-            str += String.Format("\nНаличие цветков: {0}", this.FlowerPresence);
+            str += String.Format("\nНаличие цветков: {0}", ConvertPresence(this.FlowerPresence));
             str += String.Format("\nКоличество веток: {0}", this.BranchCount);
             return str;
+        }
+
+        private string ConvertPresence(bool presence)
+        {
+            if (presence)
+            {
+                return "да";
+            }
+            else
+            {
+                return "нет";
+            }
         }
 
         public static Bush Generate()
@@ -99,9 +172,22 @@ namespace WinFormsApp1
         {
             var str = "Дерево";
             str += base.getInfo();
-            str += String.Format("\nТип дерева: {0}", this.type);
+            str += String.Format("\nТип дерева: {0}", ConvertType(this.type));
             str += String.Format("\nРадиус ствола: {0}", this.Radius);
             return str;
+        }
+
+        private string ConvertType(TreeType type)
+        {
+            switch (type)
+            {
+                case TreeType.coniferous:
+                    return "хвойное";
+
+                case TreeType.leaf:
+                    return "лиственное";
+            }
+            return "";
         }
 
         public static Tree Generate()

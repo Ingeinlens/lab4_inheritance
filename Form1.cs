@@ -12,6 +12,7 @@ namespace WinFormsApp1
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        // Хранит список растений
         private List<Plant> plantsList = new List<Plant>();
 
         public Form()
@@ -20,6 +21,7 @@ namespace WinFormsApp1
             ShowInfo();
         }
 
+        // Формирует очередь
         private void Line()
         {
             if (this.plantsList.Count == 0)
@@ -48,13 +50,16 @@ namespace WinFormsApp1
             }
         }
 
+        // Чистит очередь
         private void Clear()
         {
             txtOut.Text = "";
             txtLine1.Text = "";
             txtLine2.Text = "";
+            pictureBox3.ImageLocation = "";
         }
 
+        // Перезаписывает список
         private void Refill()
         {
             this.plantsList.Clear();
@@ -79,6 +84,7 @@ namespace WinFormsApp1
             ShowInfo();
         }
 
+        // Обработчик нажатия кнопки перезаписи
         private void btnRefill_Click(object sender, EventArgs e)
         {
             Clear();
@@ -86,6 +92,7 @@ namespace WinFormsApp1
             Line();
         }
 
+        // Выводит информацию о полученном заказе
         private void ShowInfo()
         {
             int flowersCount = 0;
@@ -113,12 +120,14 @@ namespace WinFormsApp1
             }
         }
 
+        // Загружает форму и вызывает другие методы необходимые по умолчанию
         private void Form1_Load(object sender, EventArgs e)
         {
             Refill();
             Line();
         }
 
+        // Обработчик нажатия кнопки взятия объекта
         private void btnGet_Click(object sender, EventArgs e)
         {
             if (this.plantsList.Count == 0)
